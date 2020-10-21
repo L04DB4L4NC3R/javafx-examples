@@ -1,3 +1,5 @@
+Import java.util.*;
+Import java.io.*;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -94,7 +96,7 @@ Label mobileLabel = new Label("Mobile : ");
         gridPane.add(mobileField, 1, 5);
 
 Label cgpaLabel = new Label("CGPA : ");
-        gridPane.add(Label, 0, 6);
+        gridPane.add(cgpaLabel, 0, 6);
 
         TextField cgpaField = new TextField();
         cgpaField.setPrefHeight(40);
@@ -126,6 +128,10 @@ Label cgpaLabel = new Label("CGPA : ");
                 }
 
                 showAlert(Alert.AlertType.CONFIRMATION, gridPane.getScene().getWindow(), "Registration Successful!", "Welcome " + nameField.getText());
+
+PrintStream output = new PrintStream(new File(”output.txt”));
+output.println(emailField.getText()+passwordField.getText()+regField.getText()+nameField.getText()+cgpaField.getText()+mobileField.getText());
+output.close();
             }
         });
     }
